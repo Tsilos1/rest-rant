@@ -23,6 +23,8 @@ router.get('/new', (req, res) => {
     res.render('places/new')
   })
 
+// 3. Important! Take a moment to look at the order of your routes. Make sure your route for GET /places/new is ABOVE the route for GET /places/:id in the places controller.
+
 router.post('/', (req, res) => {
     console.log(req.body)
     res.send('POST /places')
