@@ -5,7 +5,7 @@ function home () {
     return (
       <Def>
           <main>
-              <h1>HOME</h1>
+              <h1>REST-Rant</h1>
           </main>
           <div>
             <img src="images/restaurant-food.jpg" alt="restaurant food" />
@@ -15,6 +15,10 @@ function home () {
           </div>
           <a href="/places">
             <button className="btn-primary">Places Page</button>
+          </a>
+          <a href="/places/index"> 
+            <button className="btn-primary">Index</button>
+
           </a>
 
       </Def>
