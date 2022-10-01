@@ -8,7 +8,7 @@ function home () {
               <h1>REST-Rant</h1>
           </main>
           <div>
-            <img src="images/restaurant-food.jpg" alt="restaurant food" />
+            <img src="images/restaurant-food.jpg" alt="restaurant food" width="500px" class="center" />
           </div>
           <div>
             Photo by <a href="https://unsplash.com/@riaquartz">Ria Quarts</a> on <a href="https://unsplash.com">Unsplash</a>
