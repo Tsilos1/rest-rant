@@ -11,18 +11,23 @@ router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
- // http://localhost:3000/places/1   
-router.get('/:id', (req, res) => {
-  res.send('places/:id')
+ // http://localhost:3000/places/1   show function
+ router.get('/:id', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    res.render('places/show', { place: places[id] })
+  }
 })
 
 
 
-// What is this code?
-
-// 3. Important! Take a moment to look at the order of your routes. Make sure your route for GET /places/new is ABOVE the route for GET /places/:id in the places controller.
-
-  router.post('/', (req, res) => {
+router.post('/', (req, res) => {
     console.log(req.body)
     if (!req.body.pic) {
       // Default image if one is not provided
