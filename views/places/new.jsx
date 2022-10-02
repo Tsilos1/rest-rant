@@ -3,7 +3,7 @@ const Def = require('../default')
 
 function new_form () {
     return (
-        <def>
+        <Def>
             <main>
                 <h1>Add a New Place</h1>
                 <form method="POST" action="/places">
@@ -31,7 +31,7 @@ function new_form () {
                 </form>
 
             </main>
-        </def>
+        </Def>
     )
 }
 
