@@ -26,9 +26,7 @@ router.get('/new', (req, res) => {
 })
 
 
-
-
-
+//localhost:3000 places/new
 router.post('/', (req, res) => {
     console.log(req.body)
     if (!req.body.pic) {
@@ -45,6 +43,8 @@ router.post('/', (req, res) => {
     res.redirect('/places')
   })
 
+
+  // Delete Places
   router.delete('/:id', (req, res) => {
     let id = Number(req.params.id)
     if (isNaN(id)) {
@@ -58,7 +58,22 @@ router.post('/', (req, res) => {
       res.redirect('/places')
     }
   })
-  
+
+
+//localhost:3000 places/edit
+router.get('/:id/edit', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+      res.render('error404')
+  }
+  else if (!places[id]) {
+      res.render('error404')
+  }
+  else {
+    res.render('places/edit', { place: places[id] })
+  }
+})
+
 
 module.exports = router
 
