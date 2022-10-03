@@ -12,26 +12,33 @@ function show (data) {
             </p>
             <p className="text-center"> Located in &nbsp; 
               {data.place.city}, {data.place.state}
-              <br></br>Serves {data.place.cuisines}
+              <br></br>
+              Serves {data.place.cuisines}
             </p>
             <hr></hr>
-            <h2>
-              Rating:
-            </h2>
-            <p>
-              Not Rated
-            </p>
-            <hr></hr>
-            <h2>
+              <h2>
+                Rating:
+              </h2>
+              <p>
+                Currently Unrated
+              </p>
+              <h2>
               Comments:
-            </h2>
-            <p>
-              No comments
-            </p>
-            <a href="" className="btn btn-warning"> Edit </a> 
+              </h2>
+              No comments... Yet
+              <hr></hr>
+              <br></br>
 
-          </main>
-        </Def>
+                <a href={`/places/${data.id}/edit`} className="btn btn-warning"> Edit </a>
+                
+              <div>
+                  <br></br>
+                <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                <button type="submit" className="btn btn-danger"> Delete </button>
+                  </form>
+                </div>
+            </main>
+          </Def>
     )
 }
 

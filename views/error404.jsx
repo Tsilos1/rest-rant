@@ -10,7 +10,7 @@ function error404 () {
               <p>Oops, sorry, we can't find this page!</p>
           </main>
           <div>
-            <img src="images/dont-panic.jpg" alt="Don't Panic" />
+            <img src="/images/dont-panic.jpg" alt="Don't Panic" />
           </div>
           <div>
             Photo by <a href="https://unsplash.com/@thetonik_co">Tonik</a> on <a href="https://unsplash.com">Unsplash</a>
