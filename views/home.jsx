@@ -16,11 +16,6 @@ function home () {
           <a href="/places">
             <button className="btn-primary">Places Page</button>
           </a>
-          <a href="/places/index"> 
-            <button className="btn-primary">Index</button>
-
-          </a>
-
       </Def>
     )
   }

@@ -10,7 +10,7 @@ function Def (html) {
                 <link rel="stylesheet" href="/css/style.css"/>
             </head>
             <body>
-            <nav>
+            <nav className="navbar navbar-expand-lg navbar-light bg-dark">
                 <ul>
                     <li>
                         <a href="/">Home</a>
@@ -23,8 +23,10 @@ function Def (html) {
                     </li>
                 </ul>
             </nav>
+            <br></br>
 
                 {html.children}
+            <br></br>
             </body>
         </html>
     )

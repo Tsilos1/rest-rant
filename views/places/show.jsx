@@ -16,20 +16,20 @@ function show (data) {
               Serves {data.place.cuisines}
             </p>
             <hr></hr>
-              <h2>
-                Rating:
-              </h2>
+              <h3>
+                Rating
+              </h3>
               <p>
                 Currently Unrated
               </p>
-              <h2>
-              Comments:
-              </h2>
+              <h3>
+              Comments
+              </h3>
               No comments... Yet
               <hr></hr>
               <br></br>
 
-                <a href={`/places/${data.id}/edit`} className="btn btn-warning"> Edit </a>
+                <a href={`/places/${data.id}/edit`} className="btn btn-warning"><i class="bi bi-pencil-square"></i>  Edit </a>
                 
               <div>
                   <br></br>

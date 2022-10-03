@@ -64,10 +64,10 @@
 **User 4:** *As a person who lives in Springfield, IL, I want to know local restaurants so I can pick a great local place to eat.*
 
 ## Color Scheme
-    Primary - #abdbe3 (light blue)
-    Secondary - #1570c0 (Dark Blue)
-    Highlight - #c06515 (Orange)
-    Text - Black and white
+    Primary - whitesmoke
+    Secondary - Blue
+    Highlight - orange
+    Text - Black and whitesmoke
 
 ## Wireframes
     Home

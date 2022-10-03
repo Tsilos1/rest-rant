@@ -1,17 +1,17 @@
 h1 {
     text-align: center;
-    color: cornflowerblue;
+    color: #583bbf;
   }
 
 h2 {
   text-align: center;
-  color: cornflowerblue;
+  color: #BF3B60;
 }
 
-nav {
-    background-color: cornflowerblue;
+/* nav {
+    background-color: #1570c0;
     padding: 10px;
-}
+} */
 
 nav ul {
     list-style-type: none;
@@ -24,24 +24,42 @@ nav li {
 }
 
 nav a {
-    color: white;
+    color: #BF3B60;
     font-size: 1.5em;
 }
 
 nav a:hover {
-    color: pink;
+    color: #A2BF3B;
     text-decoration: none;
 }
 
 body {
-  background-color: lightblue;
+  background-color: whitesmoke;
   text-align: center;
 }
 
 main {
   margin-right: 20px;
   margin-left: 20px;
-  background-color: white;
 }
 
-  
+img {
+  width:250px;
+} 
+
+a:hover {
+  color: #A2BF3B;
+}
+
+button {
+  background-color: #BF3B60;
+  color: whitesmoke;
+}
+
+h3 {
+  color: #583bbf;
+}
+
+a {
+  color: #BF3B60;
+}
