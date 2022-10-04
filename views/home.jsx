@@ -13,9 +13,12 @@ function home () {
           <div>
             Photo by <a href="https://unsplash.com/@riaquartz">Ria Quarts</a> on <a href="https://unsplash.com">Unsplash</a>
           </div>
+          <br></br>
           <a href="/places">
-            <button className="btn-primary">Places Page</button>
+            <button className="btn btn-dark btn-lg">Places Page</button>
           </a>
+          <br></br>
+          <br></br>
       </Def>
     )
   }

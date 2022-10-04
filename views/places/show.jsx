@@ -28,13 +28,14 @@ function show (data) {
               No comments... Yet
               <hr></hr>
               <br></br>
-
-                <a href={`/places/${data.id}/edit`} className="btn btn-warning"><i class="bi bi-pencil-square"></i>  Edit </a>
-                
+              <div>
+                <a href={`/places/${data.id}/edit`} className="btn btn-warning btn-lg"> Edit </a>
+              </div>
               <div>
                   <br></br>
                 <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
-                <button type="submit" className="btn btn-danger"> Delete </button>
+                <button type="submit" className="btn btn-danger btn-lg">
+                Delete </button>
                   </form>
                 </div>
             </main>

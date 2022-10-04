@@ -51,6 +51,8 @@ function edit_form (data) {
                         name="cuisines"
                         value={data.place.cuisines} required />
                     </div>
+                    <br></br>
+                    <br></br>
                     <input className="button" type="submit" value="Edit Place" />
                 </form>
                 
