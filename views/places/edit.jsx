@@ -20,6 +20,7 @@ function edit_form (data) {
                     <div className="form-group col-sm-6">
                             <label htmlFor="pic">Place Picture</label>
                             <input 
+                            type="url"
                             className="form-control" 
                             id="pic"
                             name="pic" />
