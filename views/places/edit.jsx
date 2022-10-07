@@ -14,7 +14,7 @@ function edit_form (data) {
                                 className="form-control" 
                                 id="name" 
                                 name="name"
-                                value={data.place.name} required />                        
+                                defaultValue={data.place.name} required />                        
                     </div>
                     
                     <div className="form-group col-sm-6">
@@ -50,7 +50,7 @@ function edit_form (data) {
                         className="form-control" 
                         id="cuisines" 
                         name="cuisines"
-                        value={data.place.cuisines} required />
+                        defaultValue={data.place.cuisines} required />
                     </div>
                     <br></br>
                     <br></br>

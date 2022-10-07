@@ -7,6 +7,8 @@ function new_form () {
             <main>
                 <h1>Add A Place</h1>
                 <form method="POST" action="/places">
+                
+                <div className="container">
                 <div className="row">
                 <div className="form-group col-sm-6">
                     <label htmlFor="name">Place Name</label>
@@ -23,33 +25,42 @@ function new_form () {
                             name="pic" />
                 </div>
                 </div>
+                </div>
+                <div className="container">
                 <div className="row">
-                <div className="form-group col-sm-6">
+                <div className="form-group col-sm">
                         <label htmlFor="city">City</label>
                         <input 
                             className="form-control" 
                             id="city" 
                             name="city" />
                 </div>
-                    <div className="form-group col-sm-6">
+                    <div className="form-group col-sm">
                         <label htmlFor="state">State</label>
                         <input 
                             className="form-control" 
                             id="state" 
                             name="state" />
+                    </div>
+                    <div className="form-group col-sm">
+                        <label htmlFor="founded">Founded Year</label>
+                        <input className="form-control" id="founded" name="founded" />
+                    </div>
                 </div>
                 </div>
-                
-                    <div className="form-group">
+                <div className="container">
+                <div className="row">
                         <label htmlFor="cuisines">Cuisines</label>
                         <input 
                             className="form-control" 
                             id="cuisines" 
                             name="cuisines" required />
                     </div>
+                    </div>
                     <br></br>
                     <input 
                         className="btn btn-dark" type="submit" value="Add Place" />
+
                 </form>
 
             </main>
