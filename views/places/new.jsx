@@ -50,6 +50,7 @@ function new_form () {
                 </div>
                 <div className="container">
                 <div className="row">
+                <div className="form-group col-sm">
                         <label htmlFor="cuisines">Cuisines</label>
                         <input 
                             className="form-control" 
@@ -57,6 +58,8 @@ function new_form () {
                             name="cuisines" required />
                     </div>
                     </div>
+                    </div>
+                
                     <br></br>
                     <input 
                         className="btn btn-dark" type="submit" value="Add Place" />
