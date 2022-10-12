@@ -6,38 +6,50 @@ function show (data) {
         <Def>
           <main>
             <br></br>
-            <h1>{ data.place.name }</h1>
-            <p>
+            <div className="row">
+              <div className="col-sm-6">
               <img src={data.place.pic}></img>
-            </p>
-            <p className="text-center"> Located in &nbsp; 
-              {data.place.city}, {data.place.state}
-              <br></br>
-              Serves {data.place.cuisines}
-            </p>
-            <hr></hr>
-              <h3>
+
+            
+                <h1>{ data.place.name }</h1>
+                <h3>
+                Located in {data.place.city}, {data.place.state}
+                </h3>
+                </div>
+
+                <div className="col-sm-6">
+                <h3>
                 Rating
               </h3>
               <p>
                 Currently Unrated
-              </p>
-              <h3>
-              Comments
-              </h3>
-              No comments... Yet
-              <hr></hr>
+              </p> 
               <br></br>
-              <div>
+                <h2>Description</h2>
+                <h3>
+                  {data.place.showEstablished()}
+                </h3>
+                <h4>
+                  serving {data.place.cuisines}
+                </h4>
+                <div>
                 <a href={`/places/${data.id}/edit`} className="btn btn-warning btn-lg"> Edit </a>
-              </div>
-              <div>
-                  <br></br>
                 <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                <br></br>
                 <button type="submit" className="btn btn-danger btn-lg">
                 Delete </button>
                   </form>
                 </div>
+              </div>
+            </div>
+              <hr></hr>
+              <h3>
+              Comments
+              </h3>
+              No comments... Yet
+             
+              
+              
             </main>
           </Def>
     )
