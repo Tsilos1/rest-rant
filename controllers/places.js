@@ -1,19 +1,20 @@
 const router = require('express').Router()
 const db = require('../models')
 
-
+//show index
 router.get('/', (req, res) => {
-    db.Place.find()
-    .then((places) => {
-      res.render('places/index', { places })
-    })
-    .catch(err => {
-      console.log(err) 
-      res.render('error404')
-    })
+  db.Place.find()
+  .then((places) => {
+    res.render('places/index', { places })
+  })
+  .catch(err => {
+    console.log(err) 
+    res.render('error404')
+  })
 })
 
 
+//add a new place
 router.post('/', (req, res) => {
   db.Place.create(req.body)
   .then(() => {
@@ -38,12 +39,13 @@ router.post('/', (req, res) => {
 })
 
 
+//add a new place
 router.get('/new', (req, res) => {
   res.render('places/new')
-}
-)
+})
 
 
+//show an individual place
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
   .populate('comments')
@@ -60,6 +62,7 @@ router.get('/:id', (req, res) => {
 
 
 
+//update a place
 router.put('/:id', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
@@ -88,39 +91,19 @@ router.put('/:id', (req, res) => {
 })
 
 
-
+//delete a place
 router.delete('/:id', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
-    res.render('error404')
-  }
-  else if (!places[id]) {
-    res.render('error404')
-  }
-  else {
-    places.splice(id, 1)
-    res.redirect('/places')
-  }
+  res.send('DELETE /places/:id stub')
 })
 
 
-
-
+//Show the edit a place page
 router.get('/:id/edit', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
-      res.render('error404')
-  }
-  else if (!places[id]) {
-      res.render('error404')
-  }
-  else {
-    res.render('places/edit', { place: places[id] })
-  }
+  res.send('GET edit page stub')
 })
 
 
-//Create a comment
+//Create a comment for a place
 router.post('/:id/comment', (req, res) => {
   console.log(req.body)
   db.Place.findById(req.params.id)

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 
 let commentSchema = new mongoose.Schema({
@@ -6,5 +7,7 @@ let commentSchema = new mongoose.Schema({
     stars: { type: Number, required: true },
     content: { type: String, default: '' }
 })
-  
+
+// module.exports.Place = require('./places')
+// module.exports.Comment = require('./comment')
 module.exports = mongoose.model('Comment', commentSchema)
