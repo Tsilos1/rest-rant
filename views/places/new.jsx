@@ -58,7 +58,7 @@ function new_form (data) {
                             className="form-control" 
                             id="founded" 
                             name="founded" 
-                            value={new Date().getFullYear()} />
+                            defaultValue={new Date().getFullYear()} />
                     </div>
 
                 </div>
