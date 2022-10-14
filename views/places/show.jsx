@@ -31,7 +31,7 @@ function show (data) {
     
     comments = data.place.comments.map(c => {
       return (
-        <div className="border">
+        <div className="border col-sm-4">
           <h2 className="rant">{c.rant ? 'Rant!' : 'Rave!'}</h2>
           <h4>{c.content}</h4>
           <h3>
@@ -53,7 +53,7 @@ function show (data) {
               <img src={data.place.pic}></img>
               <h3>
                 Located in {data.place.city}, {data.place.state}
-                </h3>
+              </h3>
               </div>
               <div className="col-sm-6">
                 <h1>{ data.place.name }</h1>
@@ -63,6 +63,7 @@ function show (data) {
                 <h3> {data.place.showEstablished()}</h3>
                 <br></br>
                 <h4> serving  {data.place.cuisines} </h4>
+                <br></br>
                 <a href={`/places/${data.place.id}/edit`} className="btn btn-warning btn-lg"> Edit </a>
                 <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
                   <button type="submit" className="btn btn-danger btn-lg"> Delete </button>
@@ -72,21 +73,19 @@ function show (data) {
               <div>
                 <h1>Comments</h1>
               </div>
-             
+              <br></br>
               <h2>
                 {comments}
-              </h2> 
-              <h3>Add a Comment!</h3>
-              <br></br>
+              </h2>
+              <br></br><br></br>
+              <h3>Add a Comment</h3>
               <br></br>
           <form action={`/places/${data.place.id}/comment`}method="POST">
-          <div>
             <div className="row">
                 <div className="form-group col-sm-12">
                     <label htmlFor="content">Your Comments:</label>
                     <textarea id="content" name="content" className="form-control"></textarea>
                 </div>
-            </div>
             <div className="row">
                 <div className="form-group col-sm-4 form">
                     <label htmlFor="author">Your Name:</label>
@@ -97,12 +96,16 @@ function show (data) {
                     <input type="range" step="0.5" min="1" max="5" id="stars" name="stars" />
                 </div> 
                 <div className="form-group col-sm-4 form">
-                    <label htmlFor="rant">Rant! 😡 &nbsp; &nbsp; </label>
+                    <label htmlFor="rant">Rant! 😡 &nbsp; &nbsp;  </label>
                     <input type="checkbox" default="unchecked" id="rant" name="rant" />
                 </div>
             </div>
+            <div>
+              <br></br>
                   <input className="btn addPlace_btn" type="submit" value="Submit" />
+            </div>
           </div>
+            <br></br>
           </form>
         </main>
       </Def>
