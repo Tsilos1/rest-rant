@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const db = require('../models')
+const { findById } = require('../models/places')
 
 //show index
 router.get('/', (req, res) => {
@@ -61,11 +62,9 @@ router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
     .populate('comments')
     .then(place => {
-      console.log(place.comments)
       res.render('places/show', { place })
     })
     .catch(err => {
-      console.log('err', err)
       res.render('error404')
     })
 })
@@ -75,43 +74,44 @@ router.get('/:id', (req, res) => {
 
 //update a place
 router.put('/:id', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
-    res.render('error404')
-  }
-  else if (!places[id]) {
-    res.render('error404')
-  }
-  else {
-    // Dig into req.body and make sure data is valid
-    if (!req.body.pic) {
-      // Default image if one is not provided
-      req.body.pic = '/images/default-restrant.jpg'
-    }
-    if (!req.body.city) {
-      req.body.city = 'Anytown'
-    }
-    if (!req.body.state) {
-      req.body.state = 'USA'
-    }
-
-    // Save the new data into places[id]
-    places[id] = req.body
-    res.redirect(`/places/${id}`)
-  }
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+  .then(() => {
+      res.redirect(`/places/${req.params.id}`)
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 })
+
 
 
 //delete a place
 router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub')
+  db.Place.findByIdAndDelete(req.params.id)
+  .then(place => {
+      res.redirect('/places')
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 })
+
+
 
 
 //Show the edit a place page
 router.get('/:id/edit', (req, res) => {
-  res.send('GET edit page stub')
+    db.Place.findById(req.params.id)
+    .then(place => {
+        res.render('places/edit', { place })
+    })
+    .catch(err => {
+        res.render('error404')
+    })
 })
+
 
 
 //Create a comment for a place

@@ -8,6 +8,4 @@ let commentSchema = new mongoose.Schema({
     content: { type: String, default: '' }
 })
 
-// module.exports.Place = require('./places')
-// module.exports.Comment = require('./comment')
 module.exports = mongoose.model('Comment', commentSchema)

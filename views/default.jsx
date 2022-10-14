@@ -32,7 +32,6 @@ function Def (html) {
                 </div>
             </nav>
             <br></br>
-
                 {html.children}
             <br></br>
             </body>
