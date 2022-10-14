@@ -19,6 +19,9 @@ function index (data) {
           <p>
             Located in {place.city}, {place.state}
           </p>
+          <br></br>
+          <br></br>
+          <br></br>
         </div>
       )
     })
