@@ -4,38 +4,49 @@ const db = require('../models')
 //show index
 router.get('/', (req, res) => {
   db.Place.find()
-  .then((places) => {
-    res.render('places/index', { places })
-  })
-  .catch(err => {
-    console.log(err) 
-    res.render('error404')
-  })
+    .then((places) => {
+      res.render('places/index', { places })
+    })
+    .catch(err => {
+      console.log(err)
+      res.render('error404')
+    })
 })
 
 
 //add a new place
 router.post('/', (req, res) => {
+  if (!req.body.pic) {
+    // Default image if one is not provided
+    req.body.pic = '/images/default-restrant.jpg'
+  }
+  if (!req.body.city) {
+    req.body.city = 'Anytown'
+  }
+  if (!req.body.state) {
+    req.body.state = 'USA'
+  }
+  // Dig into req.body and make sure data is valid
   db.Place.create(req.body)
-  .then(() => {
+    .then(() => {
       res.redirect('/places')
-  })
-  .catch(err => {
-    if (err && err.name == 'ValidationError') {
-      let message = 'Validation Error: '
-      for (var field in err.errors) {
+    })
+    .catch(err => {
+      if (err && err.name == 'ValidationError') {
+        let message = 'Validation Error: '
+        for (var field in err.errors) {
           message += `${field} was ${err.errors[field].value}. `
           message += `${err.errors[field].message}`
-      }
+        }
 
-      console.log('Validation error message', message)
-      
-      res.render('places/new', { message })
+        console.log('Validation error message', message)
+
+        res.render('places/new', { message })
       }
-    else {
-      res.render('error404')
-    }
-  })
+      else {
+        res.render('error404')
+      }
+    })
 })
 
 
@@ -48,15 +59,15 @@ router.get('/new', (req, res) => {
 //show an individual place
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
-  .populate('comments')
-  .then(place => {
+    .populate('comments')
+    .then(place => {
       console.log(place.comments)
       res.render('places/show', { place })
-  })
-  .catch(err => {
+    })
+    .catch(err => {
       console.log('err', err)
       res.render('error404')
-  })
+    })
 })
 
 
@@ -66,27 +77,27 @@ router.get('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
-      res.render('error404')
+    res.render('error404')
   }
   else if (!places[id]) {
-      res.render('error404')
+    res.render('error404')
   }
   else {
-      // Dig into req.body and make sure data is valid
-      if (!req.body.pic) {
-          // Default image if one is not provided
-          req.body.pic = '/images/default-restrant.jpg'
-      }
-      if (!req.body.city) {
-          req.body.city = 'Anytown'
-      }
-      if (!req.body.state) {
-          req.body.state = 'USA'
-      }
+    // Dig into req.body and make sure data is valid
+    if (!req.body.pic) {
+      // Default image if one is not provided
+      req.body.pic = '/images/default-restrant.jpg'
+    }
+    if (!req.body.city) {
+      req.body.city = 'Anytown'
+    }
+    if (!req.body.state) {
+      req.body.state = 'USA'
+    }
 
-      // Save the new data into places[id]
-      places[id] = req.body
-      res.redirect(`/places/${id}`)
+    // Save the new data into places[id]
+    places[id] = req.body
+    res.redirect(`/places/${id}`)
   }
 })
 
@@ -107,22 +118,22 @@ router.get('/:id/edit', (req, res) => {
 router.post('/:id/comment', (req, res) => {
   console.log(req.body)
   db.Place.findById(req.params.id)
-  .then(place => {
+    .then(place => {
       db.Comment.create(req.body)
-      .then(comment => {
+        .then(comment => {
           place.comments.push(comment.id)
           place.save()
-          .then(() => {
+            .then(() => {
               res.redirect(`/places/${req.params.id}`)
-          })
-      })
-      .catch(err => {
+            })
+        })
+        .catch(err => {
           res.render('error404')
-      })
-  })
-  .catch(err => {
+        })
+    })
+    .catch(err => {
       res.render('error404')
-  })
+    })
 })
 
 
@@ -136,7 +147,7 @@ router.post('/:id/rant', (req, res) => {
 })
 
 router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub')
+  res.send('GET /places/:id/rant/:rantId stub')
 })
 
 module.exports = router
