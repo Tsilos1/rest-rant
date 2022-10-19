@@ -4,6 +4,7 @@ const express = require('express')
 const methodOverride = require('method-override')
 const app = express()
 const mongoose = require('mongoose')
+const PORT = process.env.PORT
 
 
 // Express Settings
@@ -18,9 +19,7 @@ app.use(methodOverride('_method'))
 // Controllers & Routes
 app.use('/places', require('./controllers/places'))
 
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
-    () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
-  ) 
+
 
 
 //Static Routes
@@ -31,6 +30,10 @@ app.get('/', (req, res) => {
 app.get('*', (req, res) => {
     res.render('error404')
 })
+
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
+    () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
+  ) 
 
 // Listen for Connections
 // app.listen(process.env.PORT)
