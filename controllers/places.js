@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
 })
 
 
-//add a new place
+//Show new place page
 router.get('/new', (req, res) => {
   res.render('places/new')
 })

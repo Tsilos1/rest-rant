@@ -12,5 +12,8 @@
   },
   "nodemonConfig": {
     "ext": "js,html,json,jsx,mjs"
+  },
+  "engines": {
+    "node": "16.15.0"
   }
 }
