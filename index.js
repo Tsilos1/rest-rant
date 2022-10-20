@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const methodOverride = require('method-override')
 const app = express()
+const mongoose = require('mongoose')
 
 //added to troubleshoot heroku
 // const mongoose = require('mongoose')
@@ -32,9 +33,9 @@ app.get('*', (req, res) => {
 
 // Listen for Connections
 //added for troubleshooting opening heroku
-// mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
-//     () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
-//   ) 
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
+    () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
+  ) 
 
 //Listen
 
