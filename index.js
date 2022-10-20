@@ -4,6 +4,7 @@ const express = require('express')
 const methodOverride = require('method-override')
 const app = express()
 const mongoose = require('mongoose')
+// const PORT = process.env.PORT
 
 //added to troubleshoot heroku
 // const mongoose = require('mongoose')
@@ -39,7 +40,7 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 
 //Listen
 
-//added for troubleshooting heroku
+// added for troubleshooting heroku
 // app.listen (PORT, () => {
 //     console.log ('listening on port', PORT);
 // })
